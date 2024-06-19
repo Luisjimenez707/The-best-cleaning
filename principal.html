@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Best Cleaning</title>
+    <link rel="stylesheet" href="principal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="logo1.png" alt="Logo de The Best Cleaning" class="logo">
+            <h1>The Best Cleaning</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="about">
+        <div class="container fade-in">
+            <h2>Sobre Nosotros</h2>
+            <p>En The Best Cleaning, ofrecemos servicios de limpieza de alta calidad para hogares y oficinas. Nuestro equipo está compuesto por profesionales dedicados y experimentados, comprometidos con la satisfacción de nuestros clientes.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Servicios</h2>
+            <div class="service-item fade-in">
+                <img src="limcasa.jpg" alt="Limpieza de hogares">
+                <p>Limpieza de hogares</p>
+            </div>
+            <div class="service-item fade-in">
+                <img src="limofi.jpg" alt="Limpieza de oficinas">
+                <p>Limpieza de oficinas</p>
+            </div>
+            <div class="service-item fade-in">
+                <img src="limprofu.jpg" alt="Limpieza profunda">
+                <p>Limpieza profunda</p>
+            </div>
+            <div class="service-item fade-in">
+                <img src="limpcons.png" alt="Limpieza post-construcción">
+                <p>Limpieza post-construcción</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container fade-in">
+            <h2>Contacto</h2>
+            <p>Para más información o para solicitar un presupuesto, por favor contáctenos:</p>
+            <ul>
+                <li>Teléfono: (502) 3421-2157</li>
+                <li>Email: thebestcleaning.in@gmail.com</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 The Best Cleaning. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in');
+            const sliders = document.querySelectorAll('.slide-in');
+
+            const appearOptions = {
+                threshold: 0,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('appear');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            sliders.forEach(slider => {
+                appearOnScroll.observe(slider);
+            });
+        });
+    </script>
+</body>
+</html>
